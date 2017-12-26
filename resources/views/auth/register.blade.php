@@ -5,13 +5,13 @@
     <div class="row justify-content-md-center mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Register</div>
+                <div class="card-header">注册</div>
                 <div class="card-body">
                     <form role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label text-lg-right">Name</label>
+                            <label class="col-lg-4 col-form-label text-lg-right">用户名</label>
 
                             <div class="col-lg-6">
                                 <input
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label text-lg-right">E-Mail Address</label>
+                            <label class="col-lg-4 col-form-label text-lg-right">邮箱</label>
 
                             <div class="col-lg-6">
                                 <input
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label text-lg-right">Password</label>
+                            <label class="col-lg-4 col-form-label text-lg-right">密码</label>
 
                             <div class="col-lg-6">
                                 <input
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-4 col-form-label text-lg-right">Confirm Password</label>
+                            <label class="col-lg-4 col-form-label text-lg-right">确认密码</label>
 
                             <div class="col-lg-6">
                                 <input
@@ -88,7 +88,7 @@
                         <div class="form-group row">
                             <div class="col-lg-6 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    注册
                                 </button>
                             </div>
                         </div>

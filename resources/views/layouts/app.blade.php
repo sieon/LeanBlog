@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Leanblog') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'Leanblog') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,8 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     @if (Auth::guest())
-                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">登录</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">注册</a></li>
                     @else
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -39,7 +39,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a href="{{ route('logout') }}" class="dropdown-item"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    Logout
+                                    退出
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
