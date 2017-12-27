@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'StaticPagesController@home')->name('home');
+Route::get('about', 'StaticPagesController@about')->name('about');
+Route::get('help', 'StaticPagesController@help')->name('help');

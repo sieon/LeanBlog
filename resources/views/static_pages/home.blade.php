@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    你已经登录！
+                    首页
                 </div>
             </div>
         </div>
