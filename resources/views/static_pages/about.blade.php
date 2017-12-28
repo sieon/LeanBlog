@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', '关于')
 @section('content')
 <div class="container">
   <div class="jumbotron">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', '首页')
 @section('content')
 <div class="container">
     <div class="row mt-5">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    首页
+                    首页方法
                 </div>
             </div>
         </div>
