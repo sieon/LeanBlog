@@ -25,15 +25,20 @@
                             {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a href="{{ route('logout') }}" class="dropdown-item"
-                               onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                退出
-                            </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
+                          <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item">个人主页</a>
+
+                          <a href="{{ route('posts.create') }}" class="dropdown-item">创建文章</a>
+
+                          <a href="{{ route('logout') }}" class="dropdown-item"
+                             onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                              退出
+                          </a>
+
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
+                              {{ csrf_field() }}
+                          </form>
                         </div>
                     </li>
                 @endif

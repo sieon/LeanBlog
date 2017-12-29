@@ -10,20 +10,21 @@ use Auth;
 
 class PostsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function index()
     {
         $posts = User::all();
-        return view('posts.index', compact($posts));
+        return view('posts.index', compact('posts'));
     }
 
     public function show(Post $post)
     {
-        return view('posts.show', compact($post));
+        $user = User::find($post->user_id);
+        return view('posts.show', compact('post', 'user'));
     }
 
     public function create()
@@ -42,7 +43,7 @@ class PostsController extends Controller
         Auth::user()->posts()->create([
           'title' => $request->title,
           'excerpt' => $request->excerpt,
-          'content' => $request->content，
+          'content' => $request->content,
         ]);
 
         return redirect()->back();
