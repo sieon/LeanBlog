@@ -1,9 +1,11 @@
-@include('layouts.head')
-<body>
-<div id="app">
-  @include('layouts.navbar')
+@include('layouts._head')
+
+  @include('layouts._navbar')
+
   <div class="container">
+
     @yield('content')
+
   </div>
-</div>
-@include('layouts.footer')
+
+@include('layouts._footer')

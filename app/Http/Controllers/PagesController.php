@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Auth;
 
-class StaticPagesController extends Controller
+class PagesController extends Controller
 {
+    public function root()
+    {
+        return view('pages.root');
+    }
+
     public function home()
     {
         $feed_items = [];
@@ -15,7 +20,7 @@ class StaticPagesController extends Controller
             $feed_items = Auth::user()->feed()->paginate(10);
         }
 
-        return view('static_pages.home', compact('feed_items'));
+        return view('pages.home', compact('feed_items'));
     }
 
     public function blog()
@@ -25,16 +30,16 @@ class StaticPagesController extends Controller
             $feed_items = Auth::user()->feed()->paginate(10);
         }
 
-        return view('static_pages.blog', compact('feed_items'));
+        return view('pages.blog', compact('feed_items'));
     }
 
     public function about()
     {
-        return view('static_pages.about', compact('page'));
+        return view('pages.about', compact('page'));
     }
 
     public function help()
     {
-        return view('static_pages.help');
+        return view('pages.help');
     }
 }
