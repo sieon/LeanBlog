@@ -5,7 +5,7 @@
     </a>
     <p>
       <span class="user">
-        <a href="{{ route('users.show', $user->id )}}">{{ $user->name }}</a>
+        <a href="{{ route('users.show', Auth::user()->id) }}">{{ $user->name }}</a>
       </span>
       <span>{{ $post->created_at->diffForHumans() }}</span>
     </p>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Post;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -37,5 +38,14 @@ class User extends Authenticatable
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));
         return "http://www.gravatar.com/avatar/$hash?s=$size";
+    }
+
+    public function feed()
+    {
+        $user_ids = Auth::user()->pluck('id')->toArray();
+        array_push($user_ids, Auth::user()->id);
+        return Post::whereIn('user_id', $user_ids)
+                            ->with('user')
+                            ->orderBy('created_at', 'desc');
     }
 }

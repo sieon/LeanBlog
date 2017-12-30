@@ -15,10 +15,11 @@ class PostsController extends Controller
     //     $this->middleware('auth');
     // }
 
-    public function index()
+    public function index(User $user)
     {
-        $posts = User::all();
-        return view('posts.index', compact('posts'));
+        $posts = Post::paginate(10);
+        //$user  = User::has($post->user_id);
+        return view('posts.index', compact('posts','user'));
     }
 
     public function show(Post $post)
@@ -35,15 +36,15 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
+            'title'   => 'required',
             'excerpt' => 'required',
-            'content' => 'required',
+            'content' => 'required'
         ]);
 
         Auth::user()->posts()->create([
-          'title' => $request->title,
+          'title'   => $request->title,
           'excerpt' => $request->excerpt,
-          'content' => $request->content,
+          'content' => $request->content
         ]);
 
         return redirect()->back();

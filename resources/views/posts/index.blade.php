@@ -3,9 +3,14 @@
 @section('content')
 <div class="container">
   <div class="row mt-5">
-    <div class="col-md-8 offset-md-2">
-      @include('posts._entry')
-    </div>
+    @if (count($posts) > 0)
+      @foreach ($posts as $post)
+        <div class="col-md-4 mb-4">
+          @include('posts._entry')
+        </div>
+      @endforeach
+      {!! $posts->render() !!}
+    @endif
   </div>
 </div>
 @endsection
