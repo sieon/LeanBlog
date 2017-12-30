@@ -5,6 +5,8 @@
       @include('posts._entry', ['user' => $post->user])
     </div>
   @endforeach
-  {!! $feed_items->render() !!}
 </div>
+<nav class="page-pagination mt-5">
+  {!! $feed_items->links('vendor.pagination.bootstrap-4') !!}
+</nav>
 @endif

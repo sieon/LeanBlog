@@ -49,4 +49,26 @@ class PostsController extends Controller
 
         return redirect()->back();
     }
+
+    public function edit(Post $post)
+    {
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(Post $post, Request $request)
+    {
+        $this->validate($request, [
+            'title'   => 'required|max:200',
+            'content' => 'required|max:20000',
+            'excerpt' => 'required|max:400',
+        ]);
+
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'excerpt' => $request->excerpt,
+        ]);
+
+        return redirect()->route('posts.show', $post->id);
+    }
 }

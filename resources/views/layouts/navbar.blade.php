@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"><a href="{{ route('home') }}" class="nav-link">首页</a></li>
-            <li class="nav-item"><a href="{{ url('posts') }}" class="nav-link">文章</a></li>
+            <li class="nav-item"><a href="{{ url('blog') }}" class="nav-link">博客</a></li>
             <li class="nav-item"><a href="{{ route('help') }}" class="nav-link">帮助</a></li>
             <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">关于</a></li>
           </ul>

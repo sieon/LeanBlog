@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'StaticPagesController@home')->name('home');
+Route::get('blog', 'StaticPagesController@blog')->name('blog');
 Route::get('about', 'StaticPagesController@about')->name('about');
 Route::get('help', 'StaticPagesController@help')->name('help');
 

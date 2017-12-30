@@ -14,7 +14,9 @@
           @include('posts._entry')
         </div>
       @endforeach
-      {!! $posts->links() !!}
     @endif
   </div>
+  <nav class="page-pagination mt-3">
+    {!! $posts->links('vendor.pagination.bootstrap-4') !!}
+  </nav>
 @endsection
