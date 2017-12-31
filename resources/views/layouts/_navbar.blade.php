@@ -23,7 +23,10 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }}
+                           <span class="user-avatar pull-left" style="margin-right:8px; margin-top:-5px;">
+                               <img src="{{ Auth::user()->avatar }}" class="rounded-circle" width="30px" height="30px">
+                           </span>
+                           {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 

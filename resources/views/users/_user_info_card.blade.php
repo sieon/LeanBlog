@@ -1,5 +1,6 @@
 <div class="card">
-  <img src="{{ $user->gravatar('140') }}" alt="{{ $user->name }}" class="gravatar card-img-top"/>
+  {{-- <img src="{{ $user->gravatar('140') }}" alt="{{ $user->name }}" class="gravatar card-img-top"/> --}}
+  <img class="card-img-top" src="{{ $user->avatar }}">
   <div class="card-body">
     <h1>{{ $user->name }}</h1>
     <p class="mt-4">个人简介：{{ $user->introduction }}</p>
