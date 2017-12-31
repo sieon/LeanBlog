@@ -29,6 +29,8 @@
 
                           <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item">个人主页</a>
 
+                          <a href="{{ route('users.edit', Auth::user()->id) }}" class="dropdown-item">编辑资料</a>
+
                           <a href="{{ route('posts.create') }}" class="dropdown-item">创建文章</a>
 
                           <a href="{{ route('logout') }}" class="dropdown-item"

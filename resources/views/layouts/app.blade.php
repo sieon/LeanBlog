@@ -4,7 +4,8 @@
 
   <div class="container">
 
-    @yield('content')
+      @include('layouts._message')
+      @yield('content')
 
   </div>
 
