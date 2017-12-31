@@ -3,8 +3,3 @@
         <div>&copy; 2012-2017 LeanTheme</div>
       </div>
     </div>
-</div>
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
