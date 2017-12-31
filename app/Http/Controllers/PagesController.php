@@ -8,10 +8,6 @@ use Auth;
 
 class PagesController extends Controller
 {
-    public function root()
-    {
-        return view('pages.root');
-    }
 
     public function home()
     {

@@ -21,3 +21,4 @@ Route::get('help', 'PagesController@help')->name('help');
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 
 Route::resource('posts', 'PostsController');
+Route::resource('posts', 'PostsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
