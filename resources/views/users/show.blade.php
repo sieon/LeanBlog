@@ -9,18 +9,19 @@
         </div>
 
         <div class="col-md-9">
-            <div class="row">
-            {{-- @if (count($posts) > 0)
-              @foreach ($posts as $post)
-                <div class="col-md-4 mb-4">
-                  @include('posts._entry')
+
+            <div class="card">
+                <div class="card-header">
+                  <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item"><a class="nav-link active" href="#">Ta 的文章</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ta 的评论</a></li>
+                  </ul>
                 </div>
-              @endforeach
-            @endif --}}
+                <div class="card-body">
+                    @include('users._posts', ['posts' => $user->posts()->recent()->paginate(10)])
+                </div>
             </div>
-            <nav class="page-pagination mt-3">
-            {{-- {!! $posts->links('vendor.pagination.bootstrap-4') !!} --}}
-            </nav>
+
         </div>
 
     </div>

@@ -20,8 +20,8 @@
           </ul>
             <ul class="navbar-nav">
                 @if (Auth::guest())
-                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">登录</a></li>
-                    <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">注册</a></li>
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><i class="fa fa-sign-in"></i> 登录</a></li>
+                    <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><i class="fa fa-sing-up"></i> 注册</a></li>
                 @else
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -33,15 +33,15 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
-                          <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item">个人主页</a>
+                          <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-user mr-2"></i>个人中心</a>
 
-                          <a href="{{ route('users.edit', Auth::user()->id) }}" class="dropdown-item">编辑资料</a>
+                          <a href="{{ route('users.edit', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-edit mr-2"></i>编辑资料</a>
 
-                          <a href="{{ route('posts.create') }}" class="dropdown-item">创建文章</a>
+                          <a href="{{ route('posts.create') }}" class="dropdown-item"><i class="fa fa-pencil mr-2"></i>创建文章</a>
 
                           <a href="{{ route('logout') }}" class="dropdown-item"
                              onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                              退出
+                              <i class="fa fa-sign-out mr-2"></i>退出
                           </a>
 
                           <form id="logout-form" action="{{ route('logout') }}" method="POST"
