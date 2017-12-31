@@ -1,9 +1,17 @@
 @extends('layouts.app')
 
+@section('title', isset($category) ? $category->name : '话题列表')
+
 @section('content')
 
     <div class="row">
         <div class="col-md-8">
+
+            @if (isset($category))
+                <div class="alert alert-info" role="alert">
+                    {{ $category->name }} ：{{ $category->description }}
+                </div>
+            @endif
 
             <div class="panel-heading my-3">
                 <ul class="nav nav-pills">

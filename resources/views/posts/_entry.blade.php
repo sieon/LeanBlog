@@ -11,7 +11,9 @@
                     {{-- <a href="{{ route('users.show', Auth::user()->id) }}">{{ $user->name }}</a> --}}
                   </span>
                   <span>{{ $post->created_at->diffForHumans() }}</span>
-                  {{ $post->category->name }}
+                  <a href="{{ route('categories.show', $post->category->id) }}" title="{{ $post->category->name }}">
+                      {{ $post->category->name }}
+                  </a>
                 </p>
                 <p class="post-excerpt">{{ $post->excerpt }}</p>
                 <p><a class="btn btn-secondary" href="{{ route('posts.show', $post->id )}}">阅读全文</a></p>
