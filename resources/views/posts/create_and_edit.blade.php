@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                 	<label for="content-field">内容</label>
-                	<textarea name="content" id="content-field" class="form-control" rows="3">{{ old('content', $post->content ) }}</textarea>
+                	<textarea name="content" id="editor" class="form-control" rows="3">{{ old('content', $post->content ) }}</textarea>
                 </div>
 
                 <div class="form-group">
@@ -59,3 +59,23 @@
 </div>
 
 @endsection
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/simditor.css') }}">
+@stop
+
+@section('scripts')
+    <script type="text/javascript"  src="{{ asset('js/module.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/hotkeys.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/uploader.js') }}"></script>
+    <script type="text/javascript"  src="{{ asset('js/simditor.js') }}"></script>
+
+    <script>
+    $(document).ready(function(){
+        var editor = new Simditor({
+            textarea: $('#editor'),
+        });
+    });
+    </script>
+
+@stop
