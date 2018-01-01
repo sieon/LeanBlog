@@ -48,4 +48,9 @@ class User extends Authenticatable
                             ->with('user')
                             ->orderBy('created_at', 'desc');
     }
+
+    public function isAuthorOf($model)
+    {
+        return $this->id == $model->user_id;
+    }
 }
