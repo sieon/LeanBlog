@@ -4,22 +4,22 @@
 
 <div class="container">
     <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            
-            <div class="panel-heading">
+        <div class="card">
+
+            <div class="card-header">
                 <h1>
-                    <i class="glyphicon glyphicon-edit"></i> Post /
+                    <i class="fa fa-edit"></i>
                     @if($post->id)
-                        Edit #{{$post->id}}
+                        编辑 #{{$post->id}}
                     @else
-                        Create
+                        创建文章
                     @endif
                 </h1>
             </div>
 
             @include('common.error')
 
-            <div class="panel-body">
+            <div class="card-body">
                 @if($post->id)
                     <form action="{{ route('posts.update', $post->id) }}" method="POST" accept-charset="UTF-8">
                         <input type="hidden" name="_method" value="PUT">
@@ -29,55 +29,28 @@
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    
+
                 <div class="form-group">
-                	<label for="title-field">Title</label>
+                	<label for="title-field">标题</label>
                 	<input class="form-control" type="text" name="title" id="title-field" value="{{ old('title', $post->title ) }}" />
-                </div> 
+                </div>
                 <div class="form-group">
-                	<label for="content-field">Content</label>
+                	<label for="content-field">内容</label>
                 	<textarea name="content" id="content-field" class="form-control" rows="3">{{ old('content', $post->content ) }}</textarea>
-                </div> 
+                </div>
+
                 <div class="form-group">
-                    <label for="user_id-field">User_id</label>
-                    <input class="form-control" type="text" name="user_id" id="user_id-field" value="{{ old('user_id', $post->user_id ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="category_id-field">Category_id</label>
-                    <input class="form-control" type="text" name="category_id" id="category_id-field" value="{{ old('category_id', $post->category_id ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="tag_id-field">Tag_id</label>
-                    <input class="form-control" type="text" name="tag_id" id="tag_id-field" value="{{ old('tag_id', $post->tag_id ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="comment_count-field">Comment_count</label>
-                    <input class="form-control" type="text" name="comment_count" id="comment_count-field" value="{{ old('comment_count', $post->comment_count ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="view_count-field">View_count</label>
-                    <input class="form-control" type="text" name="view_count" id="view_count-field" value="{{ old('view_count', $post->view_count ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="last_comment_user_id-field">Last_comment_user_id</label>
-                    <input class="form-control" type="text" name="last_comment_user_id" id="last_comment_user_id-field" value="{{ old('last_comment_user_id', $post->last_comment_user_id ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="order-field">Order</label>
-                    <input class="form-control" type="text" name="order" id="order-field" value="{{ old('order', $post->order ) }}" />
-                </div> 
-                <div class="form-group">
-                	<label for="excerpt-field">Excerpt</label>
-                	<textarea name="excerpt" id="excerpt-field" class="form-control" rows="3">{{ old('excerpt', $post->excerpt ) }}</textarea>
-                </div> 
-                <div class="form-group">
-                	<label for="slug-field">Slug</label>
-                	<input class="form-control" type="text" name="slug" id="slug-field" value="{{ old('slug', $post->slug ) }}" />
+                    <select class="form-control" name="category_id" required>
+                        <option value="" hidden disabled selected>请选择分类</option>
+                        @foreach ($categories as $value)
+                            <option value="{{ $value->id }}">{{ $value->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                     <div class="well well-sm">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a class="btn btn-link pull-right" href="{{ route('posts.index') }}"><i class="glyphicon glyphicon-backward"></i>  Back</a>
+                        <button type="submit" class="btn btn-primary">发表</button>
+                        <a class="btn btn-link pull-right" href="{{ route('posts.index') }}"><i class="glyphicon glyphicon-backward"></i>  返回</a>
                     </div>
                 </form>
             </div>

@@ -7,7 +7,7 @@
                 {{ $post->title }}
             </a>
             <span class="meta pull-right">
-                {{ $post->reply_count }} 回复
+                {{ $post->view_count }} 浏览
                 <span> ⋅ </span>
                 {{ $post->created_at->diffForHumans() }}
             </span>

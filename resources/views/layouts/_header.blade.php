@@ -9,20 +9,23 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item {{ active_class(if_route('home')) }}"><a href="{{ route('home') }}" class="nav-link">首页</a></li>
-            <li class="nav-item {{ active_class(if_route('posts.index')) }}"><a href="{{ route('posts.index') }}" class="nav-link">文章</a></li>
-            <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a href="{{ route('categories.show', 1) }}" class="nav-link">产品经理</a></li>
-            <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a href="{{ route('categories.show', 2) }}" class="nav-link">用户增长</a></li>
-            <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a href="{{ route('categories.show', 3) }}" class="nav-link">问答</a></li>
-            <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a href="{{ route('categories.show', 4) }}" class="nav-link">公告</a></li>
-            <li class="nav-item {{ active_class(if_uri('about')) }}"><a href="{{ route('about') }}" class="nav-link">关于</a></li>
-          </ul>
+
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {{ active_class(if_route('home')) }}"><a href="{{ route('home') }}" class="nav-link">首页</a></li>
+                <li class="nav-item {{ active_class(if_route('posts.index')) }}"><a href="{{ route('posts.index') }}" class="nav-link">文章</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a href="{{ route('categories.show', 1) }}" class="nav-link">产品经理</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a href="{{ route('categories.show', 2) }}" class="nav-link">用户增长</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a href="{{ route('categories.show', 3) }}" class="nav-link">问答</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a href="{{ route('categories.show', 4) }}" class="nav-link">公告</a></li>
+                <li class="nav-item {{ active_class(if_uri('about')) }}"><a href="{{ route('about') }}" class="nav-link">关于</a></li>
+            </ul>
+
             <ul class="navbar-nav">
                 @if (Auth::guest())
                     <li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><i class="fa fa-sign-in"></i> 登录</a></li>
                     <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><i class="fa fa-sing-up"></i> 注册</a></li>
                 @else
+                    <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link"><i class="fa fa-plus mr-2"></i>创建文章</a></li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
@@ -36,8 +39,6 @@
                           <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-user mr-2"></i>个人中心</a>
 
                           <a href="{{ route('users.edit', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-edit mr-2"></i>编辑资料</a>
-
-                          <a href="{{ route('posts.create') }}" class="dropdown-item"><i class="fa fa-pencil mr-2"></i>创建文章</a>
 
                           <a href="{{ route('logout') }}" class="dropdown-item"
                              onclick="event.preventDefault();document.getElementById('logout-form').submit();">

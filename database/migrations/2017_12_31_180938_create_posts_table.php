@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration 
+class CreatePostsTable extends Migration
 {
 	public function up()
 	{
@@ -13,7 +13,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->integer('user_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
-            $table->integer('tag_id')->unsigned()->index();
+            //$table->integer('tag_id')->unsigned()->index();
             $table->integer('comment_count')->unsigned()->default(0);
             $table->integer('view_count')->unsigned()->default(0);
             $table->integer('last_comment_user_id')->unsigned()->default(0);
