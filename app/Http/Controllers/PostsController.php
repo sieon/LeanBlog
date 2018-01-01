@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Request;
 use App\Http\Requests\PostRequest;
 
 use App\Models\Post;
@@ -29,6 +30,11 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
+        // URL 矫正
+        if ( ! empty($post->slug) && $post->slug != $request->slug) {
+          return redirect($post->link(), 301);
+        }
+
         return view('posts.show', compact('post'));
     }
 
@@ -45,7 +51,7 @@ class PostsController extends Controller
         $post->user_id = Auth::user()->id;
         $post->save();
 
-		return redirect()->route('posts.show', $post->id)->with('message', '创建成功！');
+		return redirect()->to($post->link())->with('message', '创建成功！');
 	}
 
 	public function edit(Post $post)
@@ -60,7 +66,7 @@ class PostsController extends Controller
 		$this->authorize('update', $post);
 		$post->update($request->all());
 
-		return redirect()->route('posts.show', $post->id)->with('message', '更新成功！');
+		return redirect()->to($post->link())->with('message', '更新成功！');
 	}
 
 	public function destroy(Post $post)
@@ -91,5 +97,11 @@ class PostsController extends Controller
             }
         }
         return $data;
+    }
+
+    //重写url
+    public function link($params = [])
+    {
+        return route('posts.show', array_merge([$this->id, $this->slug], $params));
     }
 }

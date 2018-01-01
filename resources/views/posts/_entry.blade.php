@@ -3,7 +3,7 @@
         @foreach($posts as $post)
             <div id="post-{{ $post->id }}" class="card">
               <div class="card-body">
-                <a class="text-dark" href="{{ route('posts.show', $post->id ) }}">
+                <a class="text-dark" href="{{ $post->link() }}">
                   <h3 class="card-title">{{ $post->title }}</h3>
                 </a>
                 <p class="post-on">
@@ -16,7 +16,7 @@
                   </a>
                 </p>
                 <p class="post-excerpt">{{ $post->excerpt }}</p>
-                <p><a class="btn btn-secondary" href="{{ route('posts.show', $post->id )}}">阅读全文</a></p>
+                <p><a class="btn btn-secondary" href="{{ $post->link() }}">阅读全文</a></p>
                 <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete? Are you sure?');">
                     {{csrf_field()}}
                     <input type="hidden" name="_method" value="DELETE">
