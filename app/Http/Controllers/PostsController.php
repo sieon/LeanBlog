@@ -51,7 +51,8 @@ class PostsController extends Controller
 	public function edit(Post $post)
 	{
         $this->authorize('update', $post);
-		return view('posts.create_and_edit', compact('post'));
+        $categories = Category::all();
+		return view('posts.create_and_edit', compact('post', 'categories'));
 	}
 
 	public function update(PostRequest $request, Post $post)
@@ -59,7 +60,7 @@ class PostsController extends Controller
 		$this->authorize('update', $post);
 		$post->update($request->all());
 
-		return redirect()->route('posts.show', $post->id)->with('message', 'Updated successfully.');
+		return redirect()->route('posts.show', $post->id)->with('message', '更新成功！');
 	}
 
 	public function destroy(Post $post)
@@ -67,7 +68,7 @@ class PostsController extends Controller
 		$this->authorize('destroy', $post);
 		$post->delete();
 
-		return redirect()->route('posts.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('posts.index')->with('message', '删除成功！');
 	}
 
     public function uploadImage(Request $request, ImageUploadHandler $uploader)
