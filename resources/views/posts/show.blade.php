@@ -1,65 +1,47 @@
 @extends('layouts.app')
+@section('title', $post->title)
+@section('description', $post->excerpt)
 
 @section('content')
 
-<div class="container">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="card">
-            <div class="card-header">
-                <h1>Post / Show #{{ $post->id }}</h1>
-            </div>
-
-            <div class="card-body">
-                <div class="well well-sm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a class="btn btn-link" href="{{ route('posts.index') }}"><i class="fa fa-backward"></i> Back</a>
-                        </div>
-                        <div class="col-md-6">
-                             <a class="btn btn-sm btn-warning pull-right" href="{{ route('posts.edit', $post->id) }}">
-                                <i class="fa fa-edit"></i> 编辑
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <label>Title</label>
-                <p>
-                	{{ $post->title }}
-                </p> <label>Content</label>
-                <p>
-                	{{ $post->content }}
-                </p> <label>User_id</label>
-                <p>
-                	{{ $post->user_id }}
-                </p> <label>Category_id</label>
-                <p>
-                	{{ $post->category_id }}
-                </p> <label>Tag_id</label>
-                <p>
-                	{{ $post->tag_id }}
-                </p> <label>Comment_count</label>
-                <p>
-                	{{ $post->comment_count }}
-                </p> <label>View_count</label>
-                <p>
-                	{{ $post->view_count }}
-                </p> <label>Last_comment_user_id</label>
-                <p>
-                	{{ $post->last_comment_user_id }}
-                </p> <label>Order</label>
-                <p>
-                	{{ $post->order }}
-                </p> <label>Excerpt</label>
-                <p>
-                	{{ $post->excerpt }}
-                </p> <label>Slug</label>
-                <p>
-                	{{ $post->slug }}
-                </p>
-            </div>
-        </div>
+<div class="row">
+  <div class="col-md-9">
+    <h1>{{ $post->title }}</h1>
+    <div class="post-meta my-3 text-muted">
+      {{ $post->created_at->diffForHumans() }}
+      ·
+      <span class="fa fa-eye mr-2" aria-hidden="true"></span>
+      {{ $post->view_count }}
     </div>
+    <div class="post-content">
+      {{ $post->content }}
+    </div>
+
+    <div class="operate">
+      <hr>
+      <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-sm" role="button">
+        <i class="fa fa-edit"></i> 编辑
+      </a>
+      <a href="#" class="btn btn-default btn-sm" role="button">
+        <i class="fa fa-trash"></i> 删除
+      </a>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card">
+      <a href="{{ route('users.show', $post->user->id) }}">
+        <img class="card-img-top" src="{{ $post->user->avatar }}">
+      </a>
+      <div class="card-body">
+        <h3>{{ $post->user->name }}</h3>
+        <p class="mt-4">个人简介：{{ $post->user->introduction }}</p>
+        <p>邮箱：{{ $post->user->email }}</p>
+        <p>注册时间：{{ $post->user->created_at->diffForHumans() }}</p>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 @endsection

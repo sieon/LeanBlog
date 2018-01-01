@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'LeanBlog') - LeanBlog</title>
+    <meta name="description" content="@yield('description', 'leanblog 博客系统')" />
 
 
     <!-- Styles -->

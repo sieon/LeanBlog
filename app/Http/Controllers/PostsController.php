@@ -70,7 +70,7 @@ class PostsController extends Controller
 		return redirect()->route('posts.index')->with('message', 'Deleted successfully.');
 	}
 
-    public function uploadImage(PostRequest $request, ImageUploadHandler $uploader)
+    public function uploadImage(Request $request, ImageUploadHandler $uploader)
     {
         // 初始化返回数据，默认是失败的
         $data = [
