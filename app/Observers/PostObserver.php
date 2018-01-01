@@ -21,6 +21,7 @@ class PostObserver
 
     public function saving(Post $post)
     {
+        $post->content = clean($post->content, 'user_post_content');
         $post->excerpt = make_excerpt($post->content);
     }
 }
