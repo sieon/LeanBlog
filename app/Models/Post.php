@@ -8,7 +8,7 @@ use App\Models\User;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'content', 'category_id', 'tag_id', 'excerpt', 'slug'];
+    protected $fillable = ['title', 'content', 'category_id', 'excerpt', 'slug'];
 
     public function category()
     {
@@ -47,5 +47,11 @@ class Post extends Model
     {
         // 按照创建时间排序
         return $query->orderBy('created_at', 'desc');
+    }
+
+    //重写url
+    public function link($params = [])
+    {
+        return route('posts.show', array_merge([$this->id, $this->slug], $params));
     }
 }

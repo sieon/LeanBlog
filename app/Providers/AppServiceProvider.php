@@ -2,7 +2,13 @@
 
 namespace App\Providers;
 
+use App\Observers\UserObserver;
+use App\Observers\PostObserver;
+use App\Models\User;
+use App\Models\Post;
+
 use Illuminate\Support\ServiceProvider;
+
 use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,9 +19,9 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-	{
-		\App\Models\User::observe(\App\Observers\UserObserver::class);
-		\App\Models\Post::observe(\App\Observers\PostObserver::class);
+    {
+		    User::observe(UserObserver::class);
+		    Post::observe(PostObserver::class);
 
         Carbon::setLocale('zh');
     }
