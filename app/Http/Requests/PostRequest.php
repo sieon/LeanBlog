@@ -25,7 +25,6 @@ class PostRequest extends Request
                     'title'       => 'required|min:2',
                     'content'        => 'required|min:3',
                     'category_id' => 'required|numeric',
-                    'tag_id' => 'required|numeric',
                 ];
             }
             case 'GET':
