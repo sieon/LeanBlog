@@ -26,3 +26,5 @@ Route::get('posts/{post}/{slug?}', 'PostsController@show')->name('posts.show');
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 
 Route::post('upload_image', 'PostsController@uploadImage')->name('posts.upload_image');
+
+Route::resource('comments', 'CommentsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);

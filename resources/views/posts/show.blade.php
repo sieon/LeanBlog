@@ -33,6 +33,14 @@
         </form>
       </div>
     @endcan
+
+        {{-- 用户回复列表 --}}
+    <div class="panel panel-default topic-reply">
+        <div class="panel-body">
+            @include('posts._comment_box', ['post' => $post])
+            @include('posts._comment_list', ['comments' => $post->comments()->with('user')->get()])
+        </div>
+    </div>
   </div>
 
   <div class="col-md-3">

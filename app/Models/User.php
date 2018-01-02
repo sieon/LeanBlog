@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->id == $model->user_id;
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
