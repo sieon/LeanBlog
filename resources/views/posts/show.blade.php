@@ -13,6 +13,9 @@
         ·
         <span class="fa fa-eye mr-2" aria-hidden="true"></span>
         {{ $post->view_count }}
+        ·
+        <span class="fa fa-comments mr-2" aria-hidden="true"></span>
+        {{ $post->comment_count }}
       </div>
       <div class="post-content">
         {{ $post->content }}
@@ -39,7 +42,7 @@
         {{-- 用户回复列表 --}}
     <div class="card card-body mt-4">
         {{-- <h3 class="card-header">评论</h3> --}}
-        @include('posts._comment_box', ['post' => $post])
+        @includeWhen(Auth::check(), 'posts._comment_box', ['post' => $post])
         @include('posts._comment_list', ['comments' => $post->comments()->with('user')->get()])
     </div>
   </div>

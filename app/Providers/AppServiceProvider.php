@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Observers\UserObserver;
 use App\Observers\PostObserver;
+use App\Observers\CommentObserver;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Comment;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     {
 		    User::observe(UserObserver::class);
 		    Post::observe(PostObserver::class);
+        Comment::observe(CommentObserver::class);
 
         Carbon::setLocale('zh');
     }
