@@ -6,40 +6,41 @@
 
 <div class="row">
   <div class="col-md-9">
-    <h1>{{ $post->title }}</h1>
-    <div class="post-meta my-3 text-muted">
-      {{ $post->created_at->diffForHumans() }}
-      ·
-      <span class="fa fa-eye mr-2" aria-hidden="true"></span>
-      {{ $post->view_count }}
-    </div>
-    <div class="post-content">
-      {{ $post->content }}
-    </div>
-
-    @can('update', $post)
-      <div class="operate">
-        <hr>
-        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-sm" role="button">
-          <i class="fa fa-edit"></i> 编辑
-        </a>
-        <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-            {{ csrf_field() }}
-            {{ method_field('DELETE') }}
-            <button type="submit" class="btn btn-default btn-sm pull-left" style="margin-left: 6px">
-                <i class="fa fa-trash"></i>
-                删除
-            </button>
-        </form>
+    <div class="card card-body">
+      <h1>{{ $post->title }}</h1>
+      <div class="post-meta my-3 text-muted">
+        {{ $post->created_at->diffForHumans() }}
+        ·
+        <span class="fa fa-eye mr-2" aria-hidden="true"></span>
+        {{ $post->view_count }}
       </div>
-    @endcan
+      <div class="post-content">
+        {{ $post->content }}
+      </div>
+
+      @can('update', $post)
+        <div class="operate">
+          <hr>
+          <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-default btn-sm" role="button">
+            <i class="fa fa-edit"></i> 编辑
+          </a>
+          <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+              {{ csrf_field() }}
+              {{ method_field('DELETE') }}
+              <button type="submit" class="btn btn-default btn-sm pull-left" style="margin-left: 6px">
+                  <i class="fa fa-trash"></i>
+                  删除
+              </button>
+          </form>
+        </div>
+      @endcan
+    </div>
 
         {{-- 用户回复列表 --}}
-    <div class="panel panel-default topic-reply">
-        <div class="panel-body">
-            @include('posts._comment_box', ['post' => $post])
-            @include('posts._comment_list', ['comments' => $post->comments()->with('user')->get()])
-        </div>
+    <div class="card card-body mt-4">
+        {{-- <h3 class="card-header">评论</h3> --}}
+        @include('posts._comment_box', ['post' => $post])
+        @include('posts._comment_list', ['comments' => $post->comments()->with('user')->get()])
     </div>
   </div>
 

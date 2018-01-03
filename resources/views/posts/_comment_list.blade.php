@@ -1,4 +1,4 @@
-<div class="comment-list mt-4">
+<div class="comment-list">
     @foreach ($comments as $index => $comment)
         <div class="media"  name="comment{{ $comment->id }}" id="comment{{ $comment->id }}">
             <div class="avatar mr-3">
@@ -18,7 +18,7 @@
                     {{-- 回复删除按钮 --}}
                     <span class="meta pull-right">
                         <a title="删除回复">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        <span class="fa fa-trash" aria-hidden="true"></span>
                         </a>
                     </span>
                 </div>

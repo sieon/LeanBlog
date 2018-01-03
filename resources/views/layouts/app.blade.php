@@ -17,7 +17,7 @@
     @yield('styles')
 </head>
 <body>
-    <div id="app" class="{{ route_class() }}-page">
+    <div id="app" class="{{ route_class() }}-page bg-light">
         @include('layouts._header')
 
         <div class="container">
