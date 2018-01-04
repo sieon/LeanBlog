@@ -26,6 +26,16 @@
                     <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><i class="fa fa-sing-up"></i> 注册</a></li>
                 @else
                     <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link"><i class="fa fa-plus mr-2"></i>创建文章</a></li>
+                    {{-- 消息通知标记 --}}
+                    <li class="nav-item">
+                      <a href="{{ route('notifications.index') }}" class="nav-link">
+                          <i class="fa fa-bell mr-2"></i>
+                          <span class="badge badge-{{ Auth::user()->notification_count > 0 ? 'danger' : 'light' }}" title="消息提醒">
+                              {{ Auth::user()->notification_count }}
+                          </span>
+                      </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">

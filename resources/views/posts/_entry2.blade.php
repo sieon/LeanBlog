@@ -1,6 +1,7 @@
 @if($posts->count())
+    <div class="card-columns">
         @foreach($posts as $post)
-            <div id="post-{{ $post->id }}" class="card mb-3">
+            <div id="post-{{ $post->id }}" class="card">
               <div class="card-body">
                 <a class="text-dark" href="{{ $post->link() }}">
                   <h3 class="card-title">{{ $post->title }}</h3>
@@ -25,6 +26,7 @@
               </div>
             </div>
         @endforeach
+    </div>
     {!! $posts->links('vendor.pagination.bootstrap-4') !!}
 
 @else

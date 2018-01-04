@@ -28,3 +28,5 @@ Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::post('upload_image', 'PostsController@uploadImage')->name('posts.upload_image');
 
 Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
+
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
