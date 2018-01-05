@@ -29,7 +29,6 @@
                     {{-- 消息通知标记 --}}
                     <li class="nav-item">
                       <a href="{{ route('notifications.index') }}" class="nav-link">
-                          <i class="fa fa-bell mr-2"></i>
                           <span class="badge badge-{{ Auth::user()->notification_count > 0 ? 'danger' : 'light' }}" title="消息提醒">
                               {{ Auth::user()->notification_count }}
                           </span>

@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Models\Comment;
 
-class PostNewComment extends Notification
+class PostNewComment extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -34,7 +34,7 @@ class PostNewComment extends Notification
     public function via($notifiable)
     {
         //return ['mail'];
-        return ['database'];
+        return ['database', 'mail'];
     }
 
     public function toDatabase($notifiable)
@@ -61,13 +61,15 @@ class PostNewComment extends Notification
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
-    // public function toMail($notifiable)
-    // {
-    //     return (new MailMessage)
-    //                 ->line('The introduction to the notification.')
-    //                 ->action('Notification Action', url('/'))
-    //                 ->line('Thank you for using our application!');
-    // }
+    public function toMail($notifiable)
+    {
+        $url = $this->comment->post->link(['#comment' . $this->comment->id]);
+
+        return (new MailMessage)
+                    ->line('你的文章有新回复！')
+                    ->action('查看回复', $url);
+                    //->line('Thank you for using our application!');
+    }
 
     /**
      * Get the array representation of the notification.
