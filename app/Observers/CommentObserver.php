@@ -30,4 +30,10 @@ class CommentObserver
     {
         //
     }
+
+    public function deleted(Comment $comment)
+    {
+        $post = $comment->post;
+        $post->decrement('comment_count', 1);
+    }
 }

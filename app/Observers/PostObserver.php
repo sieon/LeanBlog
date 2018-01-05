@@ -40,4 +40,9 @@ class PostObserver
             dispatch(new TranslateSlug($post));
         }
     }
+
+    public function deleted(Post $post)
+    {
+        \DB::table('comments')->where('post_id', $post->id)->delete();
+    }
 }

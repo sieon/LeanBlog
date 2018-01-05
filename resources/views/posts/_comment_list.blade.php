@@ -16,11 +16,17 @@
                     <span class="text-muted dmeta" title="{{ $comment->created_at }}">{{ $comment->created_at->diffForHumans() }}</span>
 
                     {{-- 回复删除按钮 --}}
-                    <span class="meta text-muted pull-right">
-                        <a c title="删除回复">
-                        <i class="fa fa-trash text-muted" aria-hidden="true"></i>
-                        </a>
-                    </span>
+                    @can('destroy', $comment)
+                        <span class="meta text-muted pull-right">
+                            <form action="{{ route('comments.destroy', $comment->id) }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type="submit" class="btn btn-danger btn-sm float-left">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </span>
+                    @endcan
                 </div>
                 <div class="comment-content">
                     {!! $comment->content !!}
