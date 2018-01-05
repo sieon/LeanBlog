@@ -25,7 +25,7 @@
                     <li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><i class="fa fa-sign-in"></i> 登录</a></li>
                     <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><i class="fa fa-sing-up"></i> 注册</a></li>
                 @else
-                    <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link"><i class="fa fa-plus mr-2"></i>创建文章</a></li>
+                    <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link"><i class="fa fa-plus mr-2"></i></a></li>
                     {{-- 消息通知标记 --}}
                     <li class="nav-item">
                       <a href="{{ route('notifications.index') }}" class="nav-link">

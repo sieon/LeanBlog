@@ -5,17 +5,14 @@
 <div class="container">
     <div class="col-md-10 ml-auto mr-auto">
         <div class="card">
-
-            <div class="card-header">
-                <h1>
-                    <i class="fa fa-edit"></i>
-                    @if($post->id)
-                        编辑 #{{$post->id}}
-                    @else
-                        创建文章
-                    @endif
-                </h1>
-            </div>
+            <h1 class="card-header bg-transparent">
+                <i class="fa fa-edit"></i>
+                @if($post->id)
+                    编辑 #{{$post->id}}
+                @else
+                    创建文章
+                @endif
+            </h1>
 
             @include('common.error')
 
@@ -30,27 +27,28 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
-                <div class="form-group">
-                	<label for="title-field">标题</label>
-                	<input class="form-control" type="text" name="title" id="title-field" value="{{ old('title', $post->title ) }}" />
-                </div>
-                <div class="form-group">
-                	<label for="content-field">内容</label>
-                	<textarea name="content" id="editor" class="form-control" rows="3" required>{{ old('content', $post->content ) }}</textarea>
-                </div>
+                    <div class="form-group">
+                    	<label for="title-field">标题</label>
+                    	<input class="form-control" type="text" name="title" id="title-field" value="{{ old('title', $post->title ) }}" />
+                    </div>
 
-                <div class="form-group">
-                    <select class="form-control" name="category_id" required>
-                        <option value="" hidden disabled {{ $post->id ? '' : 'selected' }}>请选择分类</option>
-                        @foreach ($categories as $value)
-                            <option value="{{ $value->id }}" {{ $post->category_id == $value->id ? 'selected' : '' }}>{{ $value->name }}</option>
-                            @endforeach
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <select class="form-control" name="category_id" required>
+                            <option value="" hidden disabled {{ $post->id ? '' : 'selected' }}>请选择分类</option>
+                            @foreach ($categories as $value)
+                                <option value="{{ $value->id }}" {{ $post->category_id == $value->id ? 'selected' : '' }}>{{ $value->name }}</option>
+                                @endforeach
+                        </select>
+                    </div>
 
-                    <div class="well well-sm">
+                    <div class="form-group">
+                    	<label for="content-field">内容</label>
+                    	<textarea name="content" id="editor" class="form-control" rows="3" required>{{ old('content', $post->content ) }}</textarea>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary">发表</button>
-                        <a class="btn btn-link pull-right" href="{{ route('posts.index') }}"><i class="glyphicon glyphicon-backward"></i>  返回</a>
+                        <a class="btn btn-link pull-right" href="{{ route('posts.index') }}"><i class="fa fa-backward"></i>  返回</a>
                     </div>
                 </form>
             </div>
