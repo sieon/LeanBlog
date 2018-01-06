@@ -12,10 +12,11 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {{ active_class(if_route('home')) }}"><a href="{{ route('home') }}" class="nav-link">首页</a></li>
-                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a href="{{ route('categories.show', 1) }}" class="nav-link">产品经理</a></li>
-                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a href="{{ route('categories.show', 2) }}" class="nav-link">用户增长</a></li>
-                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a href="{{ route('categories.show', 3) }}" class="nav-link">问答</a></li>
-                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a href="{{ route('categories.show', 4) }}" class="nav-link">公告</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a href="{{ route('categories.show', 1) }}" class="nav-link">无处安放</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a href="{{ route('categories.show', 2) }}" class="nav-link">WordPress</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a href="{{ route('categories.show', 3) }}" class="nav-link">用户增长</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a href="{{ route('categories.show', 4) }}" class="nav-link">日常随笔</a></li>
+                <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 5))) }}"><a href="{{ route('categories.show', 5) }}" class="nav-link">知识管理</a></li>
                 <li class="nav-item {{ active_class(if_uri('about')) }}"><a href="{{ route('about') }}" class="nav-link">关于</a></li>
             </ul>
 

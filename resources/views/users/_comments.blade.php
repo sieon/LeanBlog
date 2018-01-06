@@ -22,7 +22,7 @@
 </ul>
 
 @else
-   <div class="card-block empty-block">暂无数据 ~_~ </div>
+   <div class="card-body empty-block">暂无数据 ~_~ </div>
 @endif
 
 {{-- 分页 --}}
