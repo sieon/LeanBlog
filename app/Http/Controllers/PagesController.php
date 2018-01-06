@@ -8,7 +8,7 @@ use Auth;
 
 class PagesController extends Controller
 {
-
+  
     public function home()
     {
         $feed_items = [];

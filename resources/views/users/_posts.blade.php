@@ -20,4 +20,6 @@
 @endif
 
 {{-- 分页 --}}
-{!! $posts->links('vendor.pagination.bootstrap-4') !!}
+<nav class="d-flex justify-content-center">
+    {!! $posts->links('vendor.pagination.bootstrap-4') !!}
+</nav>

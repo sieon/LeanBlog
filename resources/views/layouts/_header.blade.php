@@ -26,14 +26,26 @@
                     <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><i class="fa fa-sing-up"></i> 注册</a></li>
                 @else
                     <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link"><i class="fa fa-plus mr-2"></i></a></li>
+
+                    @if ( Auth::user()->notification_count > 0 )
+
+                      <li class="nav-item">
+                        <a href="{{ route('notifications.index') }}" class="nav-link">
+                            <span class="badge badge-danger" title="消息提醒">
+                                {{ Auth::user()->notification_count }}
+                            </span>
+                        </a>
+                      </li>
+
+                    @endif
                     {{-- 消息通知标记 --}}
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                       <a href="{{ route('notifications.index') }}" class="nav-link">
                           <span class="badge badge-{{ Auth::user()->notification_count > 0 ? 'danger' : 'light' }}" title="消息提醒">
                               {{ Auth::user()->notification_count }}
                           </span>
                       </a>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -47,18 +59,17 @@
 
                           @can('manage_contents')
                               <a href="{{ url(config('administrator.uri')) }}" class="dropdown-item">
-                                  <i class="fa fa-dashboard" aria-hidden="true"></i>
-                                  管理后台
+                                  <i class="fa fa-dashboard" aria-hidden="true"></i> 管理后台
                               </a>
                           @endcan
 
-                          <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-user mr-2"></i>个人中心</a>
+                          <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-user"></i> 个人中心</a>
 
-                          <a href="{{ route('users.edit', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-edit mr-2"></i>编辑资料</a>
+                          <a href="{{ route('users.edit', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-edit"></i> 编辑资料</a>
 
                           <a href="{{ route('logout') }}" class="dropdown-item"
                              onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                              <i class="fa fa-sign-out mr-2"></i>退出
+                              <i class="fa fa-sign-out"></i> 退出
                           </a>
 
                           <form id="logout-form" action="{{ route('logout') }}" method="POST"

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header bg-transparent">
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item"><a class="nav-link {{ active_class(if_query('tab', null)) }}" href="{{ route('users.show', $user->id) }}">Ta 的文章</a>
                         </li>

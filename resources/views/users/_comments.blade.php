@@ -14,7 +14,7 @@
             </div>
 
             <div class="comment-meta text-muted">
-                <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 回复于 {{ $comment->created_at->diffForHumans() }}
+                <span class="fa fa-time" aria-hidden="true"></span> 回复于 {{ $comment->created_at->diffForHumans() }}
             </div>
         </li>
     @endforeach
@@ -22,8 +22,10 @@
 </ul>
 
 @else
-   <div class="empty-block">暂无数据 ~_~ </div>
+   <div class="card-block empty-block">暂无数据 ~_~ </div>
 @endif
 
 {{-- 分页 --}}
-{!! $comments->appends(Request::except('page'))->links('vendor.pagination.bootstrap-4') !!}
+<nav class="d-flex justify-content-center">
+  {!! $comments->appends(Request::except('page'))->links('vendor.pagination.bootstrap-4') !!}
+</nav>

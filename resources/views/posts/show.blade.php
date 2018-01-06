@@ -60,12 +60,13 @@
             </a>
 
             <div class="card-body">
-                <h3>{{ $post->user->name }}</h3>
-                <p class="mt-4">个人简介：{{ $post->user->introduction }}</p>
-                <p>邮箱：{{ $post->user->email }}</p>
-                <p>注册时间：{{ $post->user->created_at->diffForHumans() }}</p>
+                <h3 class="card-title">{{ $post->user->name }}</h3>
+                <p class="card-text">{{ $post->user->introduction }}</p>
             </div>
-
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>注册于：</strong>{{ $post->user->created_at->diffForHumans() }}</li>
+                <li class="list-group-item"><strong>最后活跃：</strong>{{ $post->user->last_actived_at->diffForHumans() }}</li>
+            </ul>
         </div>
 
     </div>
