@@ -9,7 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'LeanBlog') - LeanBlog</title>
-    <meta name="description" content="@yield('description', 'leanblog 博客系统')" />
+    <meta name="description" content="@yield('description', setting('seo_description', 'LeanBlog博客系统。'))" />
+    <meta name="keyword" content="@yield('keyword', setting('seo_keyword', 'WordPress主题,Laravel开发,leanblog,博客系统'))" />
 
 
     <!-- Styles -->
@@ -35,7 +36,7 @@
     @if (app()->isLocal())
         @include('sudosu::user-selector')
     @endif
-    
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
