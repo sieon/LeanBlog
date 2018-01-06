@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 //use App\Http\Requests\Request;
 use App\Http\Requests\PostRequest;
 
+use App\Models\User;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
@@ -22,10 +23,12 @@ class PostsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index(Request $request, Post $post)
+	public function index(Request $request, Post $post, User $user)
 	{
-		$posts = Post::withOrder($request->order)->paginate(10);
-		return view('posts.index', compact('posts'));
+  		$posts = Post::withOrder($request->order)->paginate(10);
+      $active_users = $user->getActiveUsers();
+      //dd($active_users);
+  		return view('posts.index', compact('posts', 'active_users'));
 	}
 
     public function show(Request $request, Post $post)

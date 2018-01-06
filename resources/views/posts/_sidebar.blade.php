@@ -1,10 +1,20 @@
-<div class="card">
-  <div class="card-header">
-      右边导航栏
-  </div>
-  <div class="card-body">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
-</div>
+@if (count($active_users))
+    <div class="card">
+        <h3 class="card-header h5">
+            活跃用户
+        </h3>
+        <div class="card-body">
+            @foreach ($active_users as $active_user)
+                <a class="media mb-3 text-secondary" href="{{ route('users.show', $active_user->id) }}">
+                    <div class="avatar mr-2">
+                        <img src="{{ $active_user->avatar }}" width="24px" height="24px" class="rounded-circle">
+                    </div>
+
+                    <div class="media-body">
+                        <span class="media-heading">{{ $active_user->name }}</span>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
+@endif
