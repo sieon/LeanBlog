@@ -30,3 +30,5 @@ Route::post('upload_image', 'PostsController@uploadImage')->name('posts.upload_i
 Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
+Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
