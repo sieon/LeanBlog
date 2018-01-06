@@ -45,6 +45,13 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 
+                          @can('manage_contents')
+                              <a href="{{ url(config('administrator.uri')) }}" class="dropdown-item">
+                                  <i class="fa fa-dashboard" aria-hidden="true"></i>
+                                  管理后台
+                              </a>
+                          @endcan
+
                           <a href="{{ route('users.show', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-user mr-2"></i>个人中心</a>
 
                           <a href="{{ route('users.edit', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-edit mr-2"></i>编辑资料</a>

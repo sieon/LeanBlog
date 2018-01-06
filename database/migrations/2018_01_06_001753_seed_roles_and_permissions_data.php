@@ -36,11 +36,11 @@ class SeedRolesAndPermissionsData extends Migration
         $founder->givePermissionTo('edit_settings');
 
         // 创建管理员角色，并赋予权限
-        $Administrator = Role::create(['name' => 'Administrator']);
-        $Administrator->givePermissionTo('contribute_contents');
-        $Administrator->givePermissionTo('publish_contents');
-        $Administrator->givePermissionTo('manage_contents');
-        $Administrator->givePermissionTo('manage_users');
+        $administrator = Role::create(['name' => 'Administrator']);
+        $administrator->givePermissionTo('contribute_contents');
+        $administrator->givePermissionTo('publish_contents');
+        $administrator->givePermissionTo('manage_contents');
+        $administrator->givePermissionTo('manage_users');
 
         // 创建编辑角色
         $editor = Role::create(['name' => 'Editor']);
@@ -56,7 +56,6 @@ class SeedRolesAndPermissionsData extends Migration
         // 创建投稿角色，并赋予权限
         $contributor = Role::create(['name' => 'Contributor']);
         $contributor->givePermissionTo('contribute_contents');
-
 
     }
 
