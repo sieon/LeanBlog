@@ -4,6 +4,9 @@
     <div class="card-body">
         <h1 class="card-title h3">{{ $user->name }}</h1>
         <p class="card-text">{{ $user->introduction }}</p>
+        @if (Auth::check())
+            @include('users._follow_form')
+        @endif
     </div>
 
     <ul class="list-group list-group-flush">

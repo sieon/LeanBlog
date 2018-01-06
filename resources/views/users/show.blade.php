@@ -2,6 +2,7 @@
 @section('title', $user->name . '的个人中心')
 
 @section('content')
+<div class="container mt-4">
     <div class="row">
         <div class="col-md-9">
             <div class="card">
@@ -27,4 +28,5 @@
         </div>
 
     </div>
+</div>
 @endsection
