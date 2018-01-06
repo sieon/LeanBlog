@@ -15,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
 		 \App\Models\Comment::class => \App\Policies\CommentPolicy::class,
 		 \App\Models\Post::class => \App\Policies\PostPolicy::class,
-        'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Model' => 'App\Policies\Policy',
         \App\Models\User::class  => \App\Policies\UserPolicy::class,
     ];
 
@@ -28,6 +28,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        \Horizon::auth(function ($request) {
+            //是否是站长
+            return \Auth::user()->hasRole('Founder');
+        });
     }
 }
