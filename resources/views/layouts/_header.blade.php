@@ -12,7 +12,6 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {{ active_class(if_route('home')) }}"><a href="{{ route('home') }}" class="nav-link">首页</a></li>
-                <li class="nav-item {{ active_class(if_route('posts.index')) }}"><a href="{{ route('posts.index') }}" class="nav-link">文章</a></li>
                 <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a href="{{ route('categories.show', 1) }}" class="nav-link">产品经理</a></li>
                 <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a href="{{ route('categories.show', 2) }}" class="nav-link">用户增长</a></li>
                 <li class="nav-item {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a href="{{ route('categories.show', 3) }}" class="nav-link">问答</a></li>
