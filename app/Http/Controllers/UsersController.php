@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Comment;
 use App\Handlers\ImageUploadHandler;
 
 class UsersController extends Controller
@@ -48,6 +49,11 @@ class UsersController extends Controller
 
         $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
+    }
+
+    public function comments(User $user, Comment $comment)
+    {
+        return view('users.comments', compact('user', 'comment'));
     }
 
     // 显示关注的人

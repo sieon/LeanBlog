@@ -21,7 +21,7 @@
                             <form action="{{ route('comments.destroy', $comment->id) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button type="submit" class="btn btn-danger btn-sm float-left">
+                                <button type="submit" class="btn btn-secondary btn-sm float-left">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </form>

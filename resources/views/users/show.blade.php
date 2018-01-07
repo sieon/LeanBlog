@@ -2,31 +2,29 @@
 @section('title', $user->name . '的个人中心')
 
 @section('content')
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="card">
-                <div class="card-header bg-transparent">
-                    <ul class="nav nav-tabs card-header-tabs">
-                        <li class="nav-item"><a class="nav-link {{ active_class(if_query('tab', null)) }}" href="{{ route('users.show', $user->id) }}">Ta 的文章</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link {{ active_class(if_query('tab', 'comments')) }}" href="{{ route('users.show', [$user->id, 'tab' => 'comments']) }}">Ta 的评论</a>
-                        </li>
-                    </ul>
-                </div>
 
-                @if (if_query('tab', 'comments'))
-                    @include('users._comments', ['comments' => $user->comments()->with('post')->recent()->paginate(5)])
-                @else
+    <div class="page-header bg-light">
+        <div class="container py-4">
+            <nav class="text-left" aria-lable="breadcrumb">
+                <ol class="breadcrumb bg-light small px-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="#">个人中心</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">我的粉丝</li>
+                </ol>
+            </nav>
+            @include('users._user_info')
+        </div>
+        <div class="container">
+            @include('users._nav_tabs')
+        </div>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card">
                     @include('users._posts', ['posts' => $user->posts()->recent()->paginate(10)])
-                @endif
+                </div>
             </div>
         </div>
-
-        <div class="col-md-3">
-            @include('users._user_info_card')
-        </div>
-
     </div>
-</div>
 @endsection

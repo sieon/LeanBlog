@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="post-content">
-                    {{ $post->content }}
+                    {!! $post->content !!}
                 </div>
 
                 @can('update', $post)
@@ -34,7 +34,7 @@
                         <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <button type="submit" class="btn btn-danger btn-sm" style="margin-left: 6px">
+                            <button type="submit" class="btn btn-secondary btn-sm" style="margin-left: 6px">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </form>

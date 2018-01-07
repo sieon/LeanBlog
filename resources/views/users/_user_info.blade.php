@@ -1,8 +1,10 @@
 <div class="media">
-  <img src="{{ $user->gravatar('140') }}" alt="{{ $user->name }}" class="gravatar mr-3"/>
-  <div class="media-body">
-    <h1>{{ $user->name }}</h1>
-    <p class="mt-4">个人简介：Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-    <p>注册时间：{{ $user->created_at }}</p>
-  </div>
+    <div class="avatar mr-3">
+        <img class="rounded" src="{{ $user->avatar }}" alt="{{ $user->name }}" width="90" height="90">
+    </div>
+    <div class="media-body">
+        <h3 class="mb-3">{{ $user->name }} </h3>
+        <p>{{ $user->introduction }}</p>
+        @include('users._follow_form')
+    </div>
 </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container mt-5">
     <div class="card">
         <h1 class="card-header">
             <i class="fa fa-edit"></i> 编辑个人资料

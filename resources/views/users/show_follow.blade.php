@@ -3,18 +3,19 @@
 
 @section('content')
 
-    <div class="page-header bg-white">
+    <div class="page-header bg-light">
+        <div class="container py-4">
+            <nav class="text-left" aria-lable="breadcrumb">
+                <ol class="breadcrumb bg-light small px-0">
+                    <li class="breadcrumb-item"><a href="/">首页</a></li>
+                    <li class="breadcrumb-item"><a href="#">个人中心</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">我的粉丝</li>
+                </ol>
+            </nav>
+            @include('users._user_info')
+        </div>
         <div class="container">
-            <div class="py-5">
-              <div class="d-flex justify-content-center mb-4">
-                  <img class="rounded-circle" src="{{ $user->avatar }}" alt="{{ $user->name }}" width="120" height="120">
-              </div>
-              <div class="text-center">
-                <h4 class="media-heading">{{ $user->name }} </h4>
-                <p class="media-heading">{{ $user->introduction }} </p>
-                @include('users._follow_form')
-              </div>
-            </div>
+            @include('users._nav_tabs')
         </div>
     </div>
 
@@ -22,7 +23,7 @@
         <div class="row">
             @foreach ($users as $user)
                 <div class="col-md-4 mb-4">
-                    <div class="card card-body border-0">
+                    <div class="card card-body border-0 bg-light">
                         <a class="media" href="{{ route('users.show', $user->id )}}">
                             <img class="rounded-circle mr-3" src="{{ $user->avatar }}" alt="{{ $user->name }}" width="48" height="48" />
                             <div class="media-body">
