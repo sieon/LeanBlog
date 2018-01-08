@@ -5,6 +5,6 @@
     <div class="media-body">
         <h3 class="mb-3">{{ $user->name }} </h3>
         <p>{{ $user->introduction }}</p>
-        @include('users._follow_form')
-    </div>
+
+    </div>@include('users._follow_form')
 </div>

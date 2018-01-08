@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $user->name . '的个人中心')
+@section('title', $user->name . '发表过的评论')
 
 @section('content')
 
@@ -19,13 +19,6 @@
         </div>
     </div>
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="card">
-                      @include('users._comments', ['comments' => $user->comments()->with('post')->recent()->paginate(5)])
-                </div>
-            </div>
-
-        </div>
+        @include('users._comments', ['comments' => $user->comments()->with('post')->recent()->paginate(10)])
     </div>
 @endsection

@@ -1,5 +1,5 @@
 <nav>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs border-0">
         <li class="nav-item">
             <a class="nav-link
             {{ active_class(if_route('users.show', $user->id)) }}" href="{{ route('users.show', $user->id) }}">发表的文章</a>

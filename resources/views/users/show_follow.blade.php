@@ -24,10 +24,11 @@
             @foreach ($users as $user)
                 <div class="col-md-4 mb-4">
                     <div class="card card-body border-0 bg-light">
-                        <a class="media" href="{{ route('users.show', $user->id )}}">
+                        <a class="media text-dark" href="{{ route('users.show', $user->id )}}">
                             <img class="rounded-circle mr-3" src="{{ $user->avatar }}" alt="{{ $user->name }}" width="48" height="48" />
                             <div class="media-body">
-                                {{ $user->name }}"
+                                <h3 class="h5">{{ $user->name }}</h3>
+                                注册于：{{ $user->created_at->diffForHumans() }}
                             </div>
                         </a>
                     </div>

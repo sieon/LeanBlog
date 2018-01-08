@@ -1,25 +1,23 @@
 @if (count($comments))
 
-<ul class="list-group list-group-flush mb-3">
+    <div class="card-columns">
 
-    @foreach ($comments as $comment)
-        <li class="list-group-item">
+        @foreach ($comments as $comment)
+            <div class="card card-body border-0 bg-light">
+                <a href="{{ $comment->post->link(['#comment' . $comment->id]) }}">
+                    {{ $comment->post->title }}
+                </a>
+                <div class="my-3">
+                    {!! $comment->content !!}
+                </div>
 
-            <a href="{{ $comment->post->link(['#comment' . $comment->id]) }}">
-                {{ $comment->post->title }}
-            </a>
-
-            <div class="comment-content my-3">
-                {!! $comment->content !!}
+                <div class="small text-muted">
+                    <span class="fa fa-clock-o" aria-hidden="true"></span> {{ $comment->created_at->diffForHumans() }}
+                </div>
             </div>
+        @endforeach
 
-            <div class="comment-meta text-muted">
-                <span class="fa fa-time" aria-hidden="true"></span> 回复于 {{ $comment->created_at->diffForHumans() }}
-            </div>
-        </li>
-    @endforeach
-
-</ul>
+    </div>
 
 @else
    <div class="card-body empty-block">暂无数据 ~_~ </div>
