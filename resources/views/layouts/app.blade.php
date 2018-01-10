@@ -12,9 +12,9 @@
     <meta name="description" content="@yield('description', setting('seo_description', 'LeanBlog博客系统。'))" />
     <meta name="keyword" content="@yield('keyword', setting('seo_keyword', 'WordPress主题,Laravel开发,leanblog,博客系统'))" />
 
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @include('UEditor::head')
     @yield('styles')
 </head>
 <body>

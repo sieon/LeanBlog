@@ -42,7 +42,11 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea id="some-textarea" name="content" rows="10" data-provide="markdown" data-iconlibrary="fa" data-provide="markdown-editable" required>{{ old('content', $post->content ) }}</textarea>
+                    {{-- <textarea id="some-textarea" name="content" rows="10" data-provide="markdown" data-iconlibrary="fa" data-provide="markdown-editable" required>{{ old('content', $post->content ) }}</textarea> --}}
+                    <!-- 加载编辑器的容器 -->
+                    <script id="container" name="content" type="text/plain" required>
+                        {!! old('content', $post->content ) !!}
+                    </script>
                 </div>
 
                 <div class="d-flex justify-content-between">
@@ -56,34 +60,15 @@
 @endsection
 
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-markdown.min.css') }}">
+
 @stop
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/bootstrap-markdown.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/marked.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/turndown.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.hotkeys.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('locale/bootstrap-markdown.zh.js') }}"></script>
-
+    <!-- 实例化编辑器 -->
     <script type="text/javascript">
-    $("#some-textarea").markdown({
-        autofocus:false,
-        savable:false,
-        language:'zh'
-        //hiddenButtons:'cmdPreview',
-        // footer:'<div id="live-footer" class="card card-body" style="display:none;"></div>',
-        // onChange:function(e){
-        //     var content = e.parseContent(),
-        //         content_length = (content.match(/\n/g)||[]).length + content.length
-        //
-        //     if (content == '') {
-        //         $('#live-footer').hide()
-        //     } else {
-        //         $('#live-footer').show().html(content)
-        //     }
-        // }
-    })
+        var ue = UE.getEditor('container');
+            ue.ready(function() {
+            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
+        });
     </script>
-
 @stop
