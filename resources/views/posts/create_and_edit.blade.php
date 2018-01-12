@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea id="some-textarea" name="content" rows="10" data-provide="markdown" data-iconlibrary="fa" data-provide="markdown-editable" required>{{ old('content', $post->content ) }}</textarea>
+                    <textarea id="some-textarea" name="content" rows="10" data-provide="markdown" data-iconlibrary="fa" data-provide="markdown-editable" required>{!! old('content', $post->content ) !!}</textarea>
                 </div>
 
                 <div class="d-flex justify-content-between">
