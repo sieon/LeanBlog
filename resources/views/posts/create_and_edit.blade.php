@@ -42,8 +42,6 @@
                 </div>
 
                 <div class="form-group">
-                    {{-- <textarea id="some-textarea" name="content" rows="10" data-provide="markdown" data-iconlibrary="fa" data-provide="markdown-editable" required>{{ old('content', $post->content ) }}</textarea> --}}
-                    <!-- 加载编辑器的容器 -->
                     <script id="container" name="content" type="text/plain" required>
                         {!! old('content', $post->content ) !!}
                     </script>
@@ -64,11 +62,10 @@
 @stop
 
 @section('scripts')
-    <!-- 实例化编辑器 -->
     <script type="text/javascript">
         var ue = UE.getEditor('container');
             ue.ready(function() {
-            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.
+            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
         });
     </script>
 @stop
