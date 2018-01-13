@@ -63,7 +63,45 @@
 
 @section('scripts')
     <script type="text/javascript">
-        var ue = UE.getEditor('container');
+        var ue = UE.getEditor('container', {
+            toolbars: [
+                [
+                    'paragraph', //段落格式
+                    'bold', //加粗
+                    'italic', //斜体
+                    'insertorderedlist', //有序列表
+                    'insertunorderedlist', //无序列表
+                    'blockquote', //引用
+                    'justifyleft', //居左对齐
+                    'justifyright', //居右对齐
+                    'justifycenter', //居中对齐
+                    'justifyjustify', //两端对齐
+                    'link', //超链接
+                    'unlink', //取消链接
+                    'insertcode', //代码语言
+                    'fullscreen', //全屏
+                ],
+                [
+                    'underline', //下划线
+                    'strikethrough', //删除线
+                    'horizontal', //分隔线
+                    'removeformat', //清除格式
+                    'simpleupload', //单图上传
+                    'insertimage', //多图上传
+                    'imagenone', //默认
+                    'imageleft', //左浮动
+                    'imageright', //右浮动
+                    'imagecenter', //居中
+                    'wordimage', //图片转存
+                    'insertvideo', //视频
+                    'inserttable', //插入表
+                    'undo', //撤销
+                    'redo', //重做
+                ]
+            ],
+            autoHeightEnabled: true,
+            autoFloatEnabled: true
+        });
             ue.ready(function() {
             ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
         });
