@@ -25,10 +25,11 @@ class PostsController extends Controller
 
 	public function index(Request $request, Post $post, User $user)
 	{
-  		$posts = Post::withOrder($request->order)->paginate(10);
-      $active_users = $user->getActiveUsers();
-      //dd($active_users);
-  		return view('posts.index', compact('posts', 'active_users'));
+        $posts = Post::withOrder($request->order)->paginate(10);
+        $active_users = $user->getActiveUsers();
+        //dd($active_users);
+
+        return view('posts.index', compact('posts', 'active_users'));
 	}
 
     public function show(Request $request, Post $post)

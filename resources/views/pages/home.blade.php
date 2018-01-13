@@ -3,7 +3,15 @@
 
 @section('content')
 
-    <h1>这里是首页</h1>
-    {{-- @include('shared._feed') --}}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-9">
+            @include('shared._feed')
+        </div>
+        <div class="col-md-3">
+            @include('posts._sidebar')
+        </div>
+    </div>
+</div>
 
 @endsection

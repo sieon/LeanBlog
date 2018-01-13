@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="card-body">
-                        @include('posts._entry')
+                        @include('posts._post')
                     </div>
                 </div>
 

@@ -5,12 +5,12 @@
         @foreach ($comments as $comment)
             <li class="list-group-item">
                 <header>
-                    <a class="text-dark mr-3" href="{{ $comment->post->link(['#comment' . $comment->id]) }}">
+                    <a class="h6 mr-3" href="{{ $comment->post->link(['#comment' . $comment->id]) }}">
                         {{ $comment->post->title }}
                     </a>
                     <span class="text-muted small">at {{ $comment->created_at->diffForHumans() }}</span>
                 </header>
-                <div class="my-3">
+                <div class="mt-3">
                     {!! $comment->content !!}
                 </div>
 

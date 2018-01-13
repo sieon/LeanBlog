@@ -7,9 +7,9 @@
         <p class="card-text">{{ $post->user->introduction }}</p>
         <div class="row text-center">
             <div class="col-4">
-                <a class="card-link" href="{{ route('users.followings', $post->user->id) }}">
+                <a class="card-link" href="{{ route('users.following', $post->user->id) }}">
                     <strong class="h2 d-block">
-                    {{ count($post->user->followings) }}
+                    {{ count($post->user->following) }}
                     </strong>
                     <span class="text-muted">关注</span>
                 </a>

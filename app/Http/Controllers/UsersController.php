@@ -57,10 +57,10 @@ class UsersController extends Controller
     }
 
     // 显示关注的人
-     public function followings(User $user)
+     public function following(User $user)
      {
          $user  = User::findOrFail($user->id);
-         $users = $user->followings()->paginate(30);
+         $users = $user->following()->paginate(30);
          $title = '关注的人';
          return view('users.show_follow', compact('user', 'users', 'title'));
      }

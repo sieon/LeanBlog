@@ -1,8 +1,8 @@
 <div class="row text-center">
     <div class="col-4">
-        <a class="card-link" href="{{ route('users.followings', $user->id) }}">
+        <a class="card-link" href="{{ route('users.following', $user->id) }}">
             <strong class="h2 d-block">
-            {{ count($user->followings) }}
+            {{ count($user->following) }}
             </strong>
             <span class="text-muted">关注</span>
         </a>

@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/', 'PostsController@index')->name('home');
+Route::get('/', 'PagesController@home')->name('home');
 Route::get('blog', 'PagesController@blog')->name('blog');
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('help', 'PagesController@help')->name('help');
@@ -35,7 +35,7 @@ Route::resource('notifications', 'NotificationsController', ['only' => ['index']
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
 
 //Route::resource('followers','UsersController', ['only' => ['store','destroy']]);
-Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings');
+Route::get('/users/{user}/following', 'UsersController@following')->name('users.following');
 Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.followers');
 
 Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');

@@ -8,7 +8,7 @@
         </li>
         <li class="nav-item"><a class="nav-link {{ active_class(if_uri_pattern('users/*/followers')) }}" href="{{ action('UsersController@followers', $user->id) }}">Ta 的粉丝</a>
         </li>
-        <li class="nav-item"><a class="nav-link {{ active_class(if_uri_pattern('users/*/followings')) }}" href="{{ action('UsersController@followings', $user->id) }}">Ta 关注的人</a>
+        <li class="nav-item"><a class="nav-link {{ active_class(if_uri_pattern('users/*/following')) }}" href="{{ action('UsersController@following', $user->id) }}">Ta 关注的人</a>
         </li>
     </ul>
 </div>

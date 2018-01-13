@@ -3,20 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Post;
 use Auth;
 
 class PagesController extends Controller
 {
-  
-    public function home()
+
+    public function home(User $user)
     {
         $feed_items = [];
+        $active_users = $user->getActiveUsers();
         if (Auth::check()) {
             $feed_items = Auth::user()->feed()->paginate(10);
         }
 
-        return view('pages.home', compact('feed_items'));
+        return view('pages.home', compact('feed_items', 'active_users'));
     }
 
     public function blog()
