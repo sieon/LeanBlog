@@ -20,6 +20,11 @@ class SeedCategoriesData extends Migration
                 'description' => '难道必须为我每一篇文章都有一个准确的分类吗？No。',
             ],
             [
+                'name'        => 'PHP',
+                'slug'        => 'php',
+                'description' => '这是一种开发语言。',
+            ],
+            [
                 'name'        => 'WordPress',
                 'slug'        => 'wordpress',
                 'description' => 'WordPress是世界上最大的博客软件，同时也是一款内容管理系统（CMS），它简单易用，所以特别流行。',

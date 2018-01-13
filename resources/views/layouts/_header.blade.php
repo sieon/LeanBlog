@@ -25,7 +25,9 @@
                     <li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><i class="fa fa-sign-in"></i> 登录</a></li>
                     <li class="nav-item"><a href="{{ route('register') }}" class="nav-link"><i class="fa fa-sing-up"></i> 注册</a></li>
                 @else
-                    <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link"><i class="fa fa-plus mr-2"></i></a></li>
+                    @can ('contribute_contents')
+                        <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link"><i class="fa fa-plus mr-2"></i></a></li>
+                    @endcan
 
                     @if ( Auth::user()->notification_count > 0 )
 

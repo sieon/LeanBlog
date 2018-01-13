@@ -42,10 +42,14 @@ class PostsController extends Controller
         return view('posts.show', compact('post'));
     }
 
-  	public function create(Post $post)
+  	public function create(User $user, Post $post)
   	{
         $categories = Category::all();
-        return view('posts.create_and_edit', compact('post', 'categories'));
+        if ($user->can('contribute_contents')) {
+            return view('posts.create_and_edit', compact('post', 'categories'));
+        }else {
+            return redirect()->back();;
+        }
   	}
 
   	public function store(PostRequest $request, Post $post)
