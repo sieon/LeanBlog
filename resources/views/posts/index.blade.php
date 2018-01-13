@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
-@section('title', isset($category) ? $category->name : '话题列表')
+@section('title', isset($category) ? $category->name : '文章列表')
 
 @section('content')
 
     <div class="container app-content mt-4">
 
         <div class="row">
-            <div class="col-md-8">
+
+            <div class="col-md-9">
 
                 @if (isset($category))
                     <div class="card mb-4">
@@ -33,7 +34,7 @@
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @include('posts._sidebar')
             </div>
 

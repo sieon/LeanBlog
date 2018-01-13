@@ -6,6 +6,7 @@
 
 <div class="container mt-4">
     <div class="row">
+
         <div class="col-md-9">
             <div class="card card-body">
 
@@ -53,23 +54,7 @@
         </div>
 
         <div class="col-md-3">
-
-            <div class="card">
-
-                <a href="{{ route('users.show', $post->user->id) }}">
-                <img class="card-img-top" src="{{ $post->user->avatar }}">
-                </a>
-
-                <div class="card-body">
-                    <h3 class="card-title">{{ $post->user->name }}</h3>
-                    <p class="card-text">{{ $post->user->introduction }}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>注册于：</strong>{{ $post->user->created_at->diffForHumans() }}</li>
-                    <li class="list-group-item"><strong>最后活跃：</strong>{{ $post->user->last_actived_at->diffForHumans() }}</li>
-                </ul>
-            </div>
-
+            @include('posts._user_info')
         </div>
 
     </div>

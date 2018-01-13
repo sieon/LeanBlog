@@ -1,9 +1,15 @@
 <div class="card">
-    <img class="card-img-top" src="{{ $user->avatar }}">
     <div class="card-body" style="">
-        <h1 class="card-title h3">{{ $user->name }}</h1>
-        <p class="card-text">{{ $user->introduction }}</p>
+        <div class="media">
+            <img class="avatar rounded-circle mr-3" src="{{ $user->avatar }}" width="120" height="120">
+            <div class="media-body">
+                <h1 class="card-title h4">{{ $user->name }}</h1>
+                <p class="card-text">{{ $user->introduction }}</p>
+            </div>
+        </div>
+        <hr>
         @include('users._stats')
+        <hr>
         @if (Auth::check())
             @include('users._follow_form')
         @endif

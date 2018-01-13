@@ -59,6 +59,7 @@ class UsersController extends Controller
     // 显示关注的人
      public function followings(User $user)
      {
+         $user  = User::findOrFail($user->id);
          $users = $user->followings()->paginate(30);
          $title = '关注的人';
          return view('users.show_follow', compact('user', 'users', 'title'));
@@ -67,6 +68,7 @@ class UsersController extends Controller
      // 粉丝
      public function followers(User $user)
      {
+         $user  = User::findOrFail($user->id);
          $users = $user->followers()->paginate(30);
          $title = '粉丝';
          return view('users.show_follow', compact('user', 'users', 'title'));
