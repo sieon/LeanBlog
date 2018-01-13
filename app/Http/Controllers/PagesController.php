@@ -10,15 +10,16 @@ use Auth;
 class PagesController extends Controller
 {
 
-    public function home(User $user)
+    public function home(Request $request, User $user, Post $post)
     {
+        $posts = Post::withOrder($request->order)->paginate(10);
         $feed_items = [];
         $active_users = $user->getActiveUsers();
         if (Auth::check()) {
             $feed_items = Auth::user()->feed()->paginate(10);
         }
 
-        return view('pages.home', compact('feed_items', 'active_users'));
+        return view('pages.home', compact('feed_items', 'posts', 'active_users'));
     }
 
     public function blog()

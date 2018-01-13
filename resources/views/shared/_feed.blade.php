@@ -29,4 +29,6 @@
     <nav class="page-pagination mt-5">
       {!! $feed_items->links('vendor.pagination.bootstrap-4') !!}
     </nav>
+@elseif(!count($feed_items))
+    @include('posts._post')
 @endif
