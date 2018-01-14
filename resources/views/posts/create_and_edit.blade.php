@@ -58,7 +58,7 @@
 @endsection
 
 @section('styles')
-
+    @include('UEditor::head')
 @stop
 
 @section('scripts')

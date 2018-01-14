@@ -14,11 +14,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @include('UEditor::head')
     @yield('styles')
 </head>
 <body>
-    <div id="app" class="{{ route_class() }}-page bg-white">
+    <div id="app" class="{{ route_class() }}-page bg-light">
         @include('layouts._header')
 
             @include('layouts._message')
