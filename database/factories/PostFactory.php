@@ -14,6 +14,8 @@ $factory->define(App\Models\Post::class, function (Faker $faker) {
     return [
         'title' => $sentence,
         'content' => $faker->text(),
+        'post_type' => 'post',
+        'post_status' => 'publish',
         'excerpt' => $sentence,
         'created_at' => $created_at,
         'updated_at' => $updated_at,
