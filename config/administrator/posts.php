@@ -69,6 +69,12 @@ return [
             'search_fields'      => ["CONCAT(id, ' ', name)"],
             'options_sort_field' => 'id',
         ],
+        'post_status' => [
+            'title'              => '状态',
+        ],
+        'post_type' => [
+            'title'              => '类型',
+        ],
         'comment_count' => [
             'title'    => '评论',
         ],
