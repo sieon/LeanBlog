@@ -24,7 +24,8 @@
         "spatie/laravel-permission": "~2.7",
         "stevenyangecho/laravel-u-editor": "~1.4",
         "summerblue/administrator": "~1.1",
-        "viacreative/sudo-su": "~1.1"
+        "viacreative/sudo-su": "~1.1",
+        "dingo/api": "2.0.0-alpha1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~3.1",
